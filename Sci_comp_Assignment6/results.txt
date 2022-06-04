@@ -1,0 +1,10 @@
+gwdata/detection20.nc
+CC: 0.99222
+gwdata/detection15.nc
+CC: 0.967221
+gwdata/detection01.nc
+CC: 0.939055
+gwdata/detection17.nc
+CC: 0.896847
+gwdata/detection02.nc
+CC: 0.887038

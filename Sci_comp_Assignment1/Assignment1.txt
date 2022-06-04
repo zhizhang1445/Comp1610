@@ -1,0 +1,36 @@
+Zhi Zhang Assignment 1:
+
+To modularise the script, we need to decide what functions to create. 
+
+I have decided on 4 modules: 1 main, 1 header and 2 function modules. 
+One modules will be for the reading/writing unctions and the other one will be functions related to the numerical simulation. 
+
+I've made a basic class (Parameters) with all the paramaters which are all the single variables we need, both ones that come from reading the waveparams.txt and dervided ones.
+The class Parameters originally had methods returning each derived parameters (eg. ngrids). 
+However, I found it too slow for the method to compute each parameter again each time it would be called.
+
+From wave1d.io: 
+
+    The initialization will be done from a single read function (readAndAssign) since the derived parameters can be known instantly right after. 
+    The readAndAssign method is done in-place so it's the only one that uses a pointer to the parameter.
+    This is important because it doesn't throw an error when readAndAssign fails. 
+
+    write_params and write_xandrho does exactly what the name says it does: writing parameters and x and rho to an already opened fstream. 
+
+From wave1d.ex:
+
+    init_Xspace and init_TriangleIC were modularised because I can see situations were they could be called multiple times (eg. running multiple simulations). 
+
+    step and update_Arrays are necessary steps to the simulation method and can be easily encapsulated into modules. 
+
+I have decided that the array such as x and rho are important enough to be left in the main. 
+This is mostly because they are arguable the most important and will be the central thing updated throughout the simulation. 
+
+As for the Makefile, it is really simple: (all) makes the main function which is made by compiling the three modules's object file: wave1d_main, wave1d_io and wave1d_ex. 
+Each object file is made from compiling its respective cpp code. 
+Then finally the (clean) removes any object file in the directory. 
+
+The comparison between the outputs was done using VScode built-in text comparison feature. 
+The output doesn't exactly match because the first block of results doesn't follow all the others.
+The first block has one less empty line before and no space between the # and t characters.
+I have decided to follow the rest of the code: two newlines and a space between # and t for the entire output file.

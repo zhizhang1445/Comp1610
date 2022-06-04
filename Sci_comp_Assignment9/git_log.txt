@@ -1,0 +1,68 @@
+commit 5b7fd6615e29472c3e47983fee949049d9818fa9
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Sun Apr 10 22:26:56 2022 -0400
+
+    Added one line to the report to explain where the timings are
+
+ report.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit 523325f6afd17d13049b067570d33c87e00ffdd4
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Sun Apr 10 22:25:30 2022 -0400
+
+    Added the timings text files and finished with the job script and compiled them on home to keep a copy. This is almost ready to submit
+
+ Makefile            |   9 +--
+ analysewave         | Bin 533080 -> 533136 bytes
+ analysewave.cpp     |   1 -
+ analysewave.o       | Bin 890592 -> 890744 bytes
+ analysewave_mpi     | Bin 0 -> 105032 bytes
+ analysewave_mpi.o   | Bin 0 -> 166040 bytes
+ analysewave_omp     | Bin 0 -> 539552 bytes
+ analysewave_omp.cpp |   8 +--
+ analysewave_omp.o   | Bin 0 -> 897168 bytes
+ report.txt          |   9 +++
+ script_mpi.sh       |  26 +++++++
+ script_omp.sh       |   2 +-
+ timings_mpi.txt     | 192 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ timings_omp.txt     |   2 -
+ 14 files changed, 237 insertions(+), 12 deletions(-)
+
+commit 86fba83ed609c8db64beb1555801475b2a1490eb
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Sun Apr 10 21:23:05 2022 -0400
+
+    Working version of omp and mpi code. Also added script for omp. Note that I used the debugjob to allocate instead of sbatch for omp. TODO: timing analysis for mpi code. Also not that MPI_FlOAT instead of MPI_DOUBLE gives you the strangest fucking error
+
+ Makefile            |  13 ++++--
+ analysewave.cpp     |  11 +++--
+ analysewave_mpi.cpp | 119 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ analysewave_omp.cpp |   2 +-
+ script_omp.sh       |  15 +++++++
+ timings_omp.txt     |  99 +++++++++++++++++++++++++++++++++++++++++++
+ 6 files changed, 251 insertions(+), 8 deletions(-)
+
+commit 929fa5608cea19dfaae54e9962a31d1b212a1af5
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Sun Apr 10 00:41:56 2022 -0400
+
+    Tried and done openmp and reduction variable of the code. TODO: MPI version
+
+ Makefile            | 19 +++++++----
+ analysewave_omp.cpp | 97 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 110 insertions(+), 6 deletions(-)
+
+commit fe35acff31724dc5633548eeda4bc00dc131305f
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Sat Apr 9 22:31:09 2022 -0400
+
+    First commit, added the relevant files and ran them once. TODO: openMPI the inner loop and use reduction variables
+
+ Makefile        |    26 +
+ analysewave     |   Bin 0 -> 533080 bytes
+ analysewave.cpp |    91 +
+ analysewave.o   |   Bin 0 -> 890592 bytes
+ output.txt      | 30001 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ setup           |     1 +
+ 6 files changed, 30119 insertions(+)

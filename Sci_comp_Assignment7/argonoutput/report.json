@@ -1,0 +1,25 @@
+{
+    "outdir": "argonoutput",
+    "parameters": {
+        "substance"  : "Ar",
+        "density"    : { "value": 2.500000, "unit": "mol/l" },
+        "boxlength"  : { "value": 69.243556, "unit": "Å" },
+        "number"     : { "value": 500, "unit": "1"},
+        "temperature": { "value": 100.000000, "unit": "K" },
+        "runtime"    : { "value": 12.000000, "unit": "ps" },
+        "timestep"   : { "value": 0.005000, "unit": "ps" },
+        "seed"       : { "value": 17, "unit": "1"},
+        "equiltime" : { "value": 3.000000, "unit": "ps" }
+    },
+    "measurements": {
+        "energy":   { "total":     { "value": 0.906542, "unit": "kJ/mol" },
+                      "potential": { "value": -0.404657, "unit": "kJ/mol" },
+                      "kinetic":   { "value": 1.311198, "unit": "kJ/mol" }
+                    },
+        "temperature": { "value": 105.135364, "unit": "K" },
+        "pressure": { "value": 1.626004, "unit": "MPa" }
+    },
+    "data_locations": {
+        "output": "/gpfs/fs1/home/l/lcl_uotphy1610/lcl_uotphy1610s1991/Assignment7/argonoutput/output.dat"
+    }
+}

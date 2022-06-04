@@ -1,0 +1,90 @@
+commit 64544881efe805abd9c788d69701ab51f501ea36
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Thu Feb 17 03:45:09 2022 -0500
+
+    (1) Fixed A bug where instead of mass B mass A was used. (2) Modularized Part2-3 by adding modules and header files
+
+ Lagrange_Points.txt |   3 ++
+ Results.txt         |   1 +
+ grav_Part2          | Bin 27952 -> 28208 bytes
+ grav_Part2_ex.cpp   |  39 +++++++++++++++++++++++++
+ grav_Part2_ex.h     |  18 ++++++++++++
+ grav_Part2_ex.o     | Bin 0 -> 8328 bytes
+ grav_Part2_main.cpp |  38 +-----------------------
+ grav_Part2_main.o   | Bin 22816 -> 18712 bytes
+ grav_Part3          | Bin 13288 -> 14256 bytes
+ grav_Part3_ex.cpp   |  65 +++++++++++++++++++++++++++++++++++++++++
+ grav_Part3_ex.h     |  19 ++++++++++++
+ grav_Part3_ex.o     | Bin 0 -> 3808 bytes
+ grav_Part3_main.cpp |  82 +++++++---------------------------------------------
+ grav_Part3_main.o   | Bin 0 -> 5792 bytes
+ makefile            |  18 ++++++++++--
+ 15 files changed, 171 insertions(+), 112 deletions(-)
+
+commit 38e22e647547d8ab9ed328121f106b22f6e4ee22
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Tue Feb 15 23:43:22 2022 -0500
+
+    (1) Root finding finished as Part 3 of the Asssignment. Still undecided on the type of output TODO: (1) Makefile is not updated for Part 3 (2) Should remove gsl_ex test script (3) Modularize both Part2 and Part3 main scripts (4) create an output for Part3 script, as of now it only prints the Lagrange points (5) Add comments
+
+ .nfs000000005d2ce678000000e5 | Bin 23360 -> 0 bytes
+ grav_Part3                   | Bin 0 -> 13288 bytes
+ grav_Part3_main.cpp          |  87 +++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 87 insertions(+)
+
+commit 47b4de89637dc49404d210a76e1053734c08bb06
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Tue Feb 15 21:33:13 2022 -0500
+
+    (1) Finished the simulation part of Part 2 (2) Get an estimated period of 3.0e7 based on rotations (3) Added print to ASCII txt of results (only positions). Things to do: (1) Modularize part 2, there's not alot but should definitely send the other function in another file (2) Doing part 3
+
+ .nfs000000005d2ce678000000e5 |    Bin 0 -> 23360 bytes
+ Results.txt                  | 100002 ++++++++++++++++++++++++++++++++++++++++
+ grav_Part1                   |    Bin 23272 -> 23272 bytes
+ grav_Part1_main.o            |    Bin 17704 -> 18152 bytes
+ grav_Part2                   |    Bin 0 -> 27952 bytes
+ grav_Part2_main.cpp          |    101 +
+ grav_Part2_main.o            |    Bin 0 -> 22816 bytes
+ grav_class.h                 |      8 +
+ grav_inter.cpp               |      6 +-
+ grav_inter.o                 |    Bin 12488 -> 12472 bytes
+ gsl_ex                       |    Bin 8368 -> 14056 bytes
+ gsl_ex.cpp                   |     20 +-
+ makefile                     |      8 +-
+ 13 files changed, 100139 insertions(+), 6 deletions(-)
+
+commit 695fc7bbf9552a3d1baceead4d7dfae4a144bc13
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Tue Feb 15 00:23:45 2022 -0500
+
+    Finished (1) gsl_ex now uses a nullptr as Jac (2) Part1 of assignment has it's own main script, updated all script names accordingly (3) Finished part1 of assignment, the module with the interaction functions are in grav_inter. To do: (1) Part2 ODE solver (2) Check that things are computed properly: F and V matches with pen and pencil calculation for 2 objects.
+
+ ODE_class.h         |  28 -------------------
+ ODE_ex.cpp          |  41 ----------------------------
+ ODE_main.cpp        |   0
+ grav_Part1          | Bin 0 -> 23272 bytes
+ grav_Part1_main.cpp |  26 ++++++++++++++++++
+ grav_Part1_main.o   | Bin 0 -> 17704 bytes
+ grav_class.h        |  26 ++++++++++++++++++
+ grav_inter.cpp      |  76 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ grav_inter.h        |  15 +++++++++++
+ grav_inter.o        | Bin 0 -> 12488 bytes
+ gsl_ex              | Bin 8512 -> 8368 bytes
+ gsl_ex.cpp          |  37 ++++++++++++-------------
+ makefile            |  17 +++++++++++-
+ 13 files changed, 178 insertions(+), 88 deletions(-)
+
+commit 73b2c3aaf383ca855f93e097526e5c0b68fefb86
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Mon Feb 14 04:37:58 2022 -0500
+
+    First commit: (1) initialized most files I think I'll need (2) working example from gsl documentation as gsl_ex. Next Steps: (1) make gsl ex work with non jacbian stepper (2) Make interaction module using list of structures
+
+ ODE_class.h   |  28 +++++++++++++++++++++++++
+ ODE_ex.cpp    |  41 +++++++++++++++++++++++++++++++++++++
+ ODE_main.cpp  |   0
+ gsl_ex        | Bin 0 -> 8512 bytes
+ gsl_ex.cpp    |  64 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ makefile      |   1 +
+ simparams.txt |  23 +++++++++++++++++++++
+ 7 files changed, 157 insertions(+)

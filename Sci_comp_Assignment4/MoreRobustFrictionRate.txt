@@ -1,0 +1,10 @@
+As it is the frictionrate function is simply computing the frictionrate at each timestep then averaging them. 
+
+To get a more robust method let's use some physics. F = ma = -\alpha*mv + mg => a = -\alpha*v + g.
+
+To get the most sureproof method, we can simply numdiff again the velocities to find the acceleration a.
+Then we look at the change in alpha with respect to v: do numdiff(a)/numdiff(v) to find -\alpha. 
+
+numdiff has no case where an Nan or Inf might occur if it wasn't in the data. Thus it makes the method a lot more stable. 
+
+Though this scheme is robust, the error scales as O(dt^3) which isn't exactly the best. 

@@ -1,0 +1,88 @@
+commit a14c683aa7bd3f75457f4e7fbb1bf4d868316859
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Tue Mar 15 21:16:12 2022 -0400
+
+    Added comments and modularized everything. Nothing Else to do.
+
+ gw_analysis.cpp |  38 ++++++++++++++++++
+ gw_analysis.h   |  19 +++++++++
+ gw_analysis.o   | Bin 0 -> 8352 bytes
+ gw_io.cpp       |  59 ++++++++++++++++++++++++++++
+ gw_io.h         |  19 +++++++++
+ gw_io.o         | Bin 0 -> 19168 bytes
+ gw_main         | Bin 35200 -> 35296 bytes
+ gw_main.cpp     | 120 ++++++--------------------------------------------------
+ gw_main.o       | Bin 37592 -> 22504 bytes
+ makefile        |  13 ++++--
+ 10 files changed, 158 insertions(+), 110 deletions(-)
+
+commit 7dc25d590fce3b28792a02c01b8c429ebc86d7c0
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Tue Mar 15 10:23:05 2022 -0400
+
+    Finished all calculations methods, now it outputs the largest 5 corelation by sorting. Also added function that writes to a txt. TODO: (1) add comments, specifically requested this assignment (2) modularize and update makefile
+
+ gw_main     | Bin 19768 -> 35200 bytes
+ gw_main.cpp |  88 +++++++++++++++++++++++++++++++++++++++++++++++++++++++-----
+ gw_main.o   | Bin 18440 -> 37592 bytes
+ results.txt |  10 +++++++
+ 4 files changed, 91 insertions(+), 7 deletions(-)
+
+commit ad8efe7ba21da53263147b3089cb121962f13141
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Tue Mar 15 09:16:25 2022 -0400
+
+    Created functions that get the names of netcdf files from int (GW file is 0) and copied the fftw module from class. Checked that they work. TODO: (1) implement Power Spectrum (2) implement Coefficient (3) implement find_largest_5
+
+ gw_main     | Bin 0 -> 19768 bytes
+ gw_main.cpp |  54 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ gw_main.o   | Bin 0 -> 18440 bytes
+ makefile    |  15 +++++++++++++++
+ setup.sh    |   3 +++
+ 5 files changed, 72 insertions(+)
+
+commit de49b7338036851beb4446189ff0b040003275b1
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Mon Mar 14 13:28:49 2022 -0400
+
+    First commit, imported the data into gwdata folder, started the modules I think I'll need
+
+ gw_analysis.cpp        |   0
+ gw_analysis.h          |   0
+ gw_io.cpp              |   0
+ gw_io.h                |   0
+ gw_main.cpp            |   0
+ gwdata/GWprediction.nc | Bin 0 -> 5194152 bytes
+ gwdata/detection01.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection02.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection03.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection04.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection05.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection06.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection07.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection08.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection09.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection10.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection11.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection12.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection13.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection14.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection15.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection16.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection17.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection18.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection19.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection20.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection21.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection22.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection23.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection24.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection25.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection26.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection27.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection28.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection29.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection30.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection31.nc  | Bin 0 -> 5194152 bytes
+ gwdata/detection32.nc  | Bin 0 -> 5194152 bytes
+ 38 files changed, 0 insertions(+), 0 deletions(-)

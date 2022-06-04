@@ -1,0 +1,11 @@
+Using OpenMP, the timing actually looks like Amdahl's law. 
+We get speedup until we hit a non-paralelizable fraction of about 3.710s. 
+There doesn't seem to be anything that disagress with Amdahl's law for the OpenMP script. 
+
+On the MPI side, the timing up to 16 threads seems to agree with Amdahl's law.
+However, between 16 and about 20 threads the real time is actually increasing.
+This is probably because communication between two nodes (each having 16 threads) is slower than inside a node. 
+Therefore it takes a while for the standard speedup of Amdahl's law to catch up. 
+In the end, however, we still get a significant speedup by using 32 threads. 
+
+The timing results for both are in timinings_mpi.txt and timings_omp.txt.
