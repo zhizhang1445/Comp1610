@@ -1,0 +1,151 @@
+commit c00c6ac90daea230d6840437644cc7ec88a74c20
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Tue Feb 8 12:13:26 2022 -0500
+
+    Modularized NetCDF operations, added function to write to output. Also the warning in netcdf where file_id wasn't used was confirmed by Prof. Zon to be a bug on netcdf++4 side.
+
+ results.nc      | Bin 52001 -> 53984 bytes
+ wave1d          | Bin 36056 -> 36128 bytes
+ wave1d_io.cpp   |  45 ++++++++++++++++++++++++++++++---------------
+ wave1d_io.h     |   4 ++--
+ wave1d_io.o     | Bin 14704 -> 17776 bytes
+ wave1d_main.cpp |  21 +++++++--------------
+ wave1d_main.o   | Bin 27320 -> 25160 bytes
+ 7 files changed, 39 insertions(+), 31 deletions(-)
+
+commit 46963557c08155cf4f4466767bf30f990b0dc001
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Mon Feb 7 19:28:01 2022 -0500
+
+    Now writes partially each rho for each time instead of writing them all at once. No longer need to modularize arrays since we only have one extra array. Still has warnings about unused file_id for netCDF
+
+ Makefile        |   3 +--
+ wave1d          | Bin 40456 -> 36056 bytes
+ wave1d_ex.cpp   |  12 ++++--------
+ wave1d_ex.h     |   4 ++--
+ wave1d_ex.o     | Bin 3808 -> 3680 bytes
+ wave1d_io.cpp   |  52 ++++++++++++++++------------------------------------
+ wave1d_io.h     |   5 +++--
+ wave1d_io.o     | Bin 18728 -> 14704 bytes
+ wave1d_main.cpp |  32 ++++++++++++++++++++++++++++----
+ wave1d_main.o   | Bin 27360 -> 27320 bytes
+ 10 files changed, 54 insertions(+), 54 deletions(-)
+
+commit 58cca6cd2977218a418d4888421bf706985d25f6
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Mon Feb 7 17:10:16 2022 -0500
+
+    Changed some header dependencies to try and fix the NcFile::file_id error but no luck. I am planning to try to write partial data next time. Also removed waveparams_nc.txt and relaced outfilename in waveparams.txt by nc equivalent. That way results will be written to results.nc instead of results.txt
+
+ results.txt       | 0
+ wave1d_ex.h       | 2 +-
+ wave1d_io.h       | 3 ---
+ waveparams.txt    | 2 +-
+ waveparams_nc.txt | 8 --------
+ 5 files changed, 2 insertions(+), 13 deletions(-)
+
+commit fbb542016511c6cf89e1e5b52681a7f3254be4f2
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Sun Feb 6 00:39:04 2022 -0500
+
+    Added Multiple HeaderFiles
+
+ wave1d               | Bin 41136 -> 40456 bytes
+ wave1d_classheader.h |  24 +++++++++++++++
+ wave1d_ex.cpp        |   7 ++++-
+ wave1d_ex.h          |  14 +++++++++
+ wave1d_header.h      |  46 ----------------------------
+ wave1d_io.cpp        |  85 +++++++++++++++++++++++++++++----------------------
+ wave1d_io.h          |  18 +++++++++++
+ wave1d_io.o          | Bin 20840 -> 18728 bytes
+ wave1d_main.cpp      |  21 +++----------
+ wave1d_main.o        | Bin 28776 -> 27360 bytes
+ 10 files changed, 115 insertions(+), 100 deletions(-)
+
+commit 20ecf72c8993aec79ca5bdec793d9c1193c10aa7
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Sat Feb 5 18:24:34 2022 -0500
+
+    Fixed (1) Boundary points are no longer included (2) rho output issue fixed: output now match with results_True.txt. Issues remaining (1) warnings when compiling (2) too many arrays, needs modularization (3) still single header
+
+ results.nc      | Bin 53957 -> 52001 bytes
+ wave1d          | Bin 41136 -> 41136 bytes
+ wave1d_io.cpp   |   8 ++++----
+ wave1d_io.o     | Bin 21136 -> 20840 bytes
+ wave1d_main.cpp |   2 +-
+ wave1d_main.o   | Bin 28776 -> 28776 bytes
+ 6 files changed, 5 insertions(+), 5 deletions(-)
+
+commit 1ad2fe7de07205d043be02d16487e4bc107e6f05
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Sat Feb 5 18:06:09 2022 -0500
+
+    Added a preliminary version of writing to netCDF, where rho(x,t) is written as a variable. List of issues includes (1) warining about netCDF files id (2) rho output is wrong (3) boundaries are included right now (4) Still single header
+
+ Makefile                                |    3 +-
+ results.nc                              |  Bin 0 -> 53957 bytes
+ results.txt                             | 5566 -------------------------------
+ wave1d                                  |  Bin 30456 -> 41136 bytes
+ wave1d_ex.cpp                           |   32 +-
+ wave1d_ex.o                             |  Bin 3480 -> 3808 bytes
+ wave1d_header.h                         |   16 +-
+ wave1d_io.cpp                           |   41 +-
+ wave1d_io.o                             |  Bin 10216 -> 21136 bytes
+ wave1d_main.cpp                         |   37 +-
+ wave1d_main.o                           |  Bin 22600 -> 28776 bytes
+ waveparams_err.txt => waveparams_nc.txt |    3 +-
+ 12 files changed, 89 insertions(+), 5609 deletions(-)
+
+commit 75059e922f9f847d4ec46f8b4fb53ab636e84d3e
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Sat Feb 5 01:40:17 2022 -0500
+
+    Now added proper error return when there's a read error
+
+ git_status.txt     |   18 +
+ results.txt        | 5566 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ wave1d             |  Bin 30456 -> 30456 bytes
+ wave1d_ex.cpp      |    2 +-
+ wave1d_main.cpp    |   11 +-
+ wave1d_main.o      |  Bin 22648 -> 22600 bytes
+ waveparams_err.txt |    7 +
+ 7 files changed, 5596 insertions(+), 8 deletions(-)
+
+commit 24ac6fbeb2bf9c38b9f16064f36e767808dc7bfb
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Sat Feb 5 01:29:10 2022 -0500
+
+    Replaced dynamic arrays with rarrays
+
+ git_status.txt  |   20 +
+ results.txt     | 5566 -------------------------------------------------------
+ wave1d          |  Bin 25488 -> 30456 bytes
+ wave1d_ex.cpp   |   11 +-
+ wave1d_ex.o     |  Bin 3344 -> 3480 bytes
+ wave1d_header.h |   11 +-
+ wave1d_io.cpp   |    3 +-
+ wave1d_io.o     |  Bin 10176 -> 10216 bytes
+ wave1d_main.cpp |   23 +-
+ wave1d_main.o   |  Bin 12840 -> 22648 bytes
+ 10 files changed, 47 insertions(+), 5587 deletions(-)
+
+commit 01157deedb4d491d535032f0ee550f5c43e1f1f3
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Fri Feb 4 23:34:32 2022 -0500
+
+    First Commit: Version from Ass1
+
+ Assignment1.txt  |   36 +
+ Makefile         |   21 +
+ results.txt      | 5566 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ results_True.txt | 5565 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ wave1d           |  Bin 0 -> 25488 bytes
+ wave1d_ex.cpp    |   42 +
+ wave1d_ex.o      |  Bin 0 -> 3344 bytes
+ wave1d_header.h  |   35 +
+ wave1d_io.cpp    |   56 +
+ wave1d_io.o      |  Bin 0 -> 10176 bytes
+ wave1d_main.cpp  |   76 +
+ wave1d_main.o    |  Bin 0 -> 12840 bytes
+ waveparams.txt   |   17 +
+ 13 files changed, 11414 insertions(+)

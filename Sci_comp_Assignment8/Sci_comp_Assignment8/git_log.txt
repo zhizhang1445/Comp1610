@@ -1,0 +1,98 @@
+commit de5dad5bf909fe8ff0628a2079f33e0d7d7dac52
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Sun Apr 3 02:37:48 2022 -0400
+
+    Found an error, if you parralellerize the string conversion then you store them before writing them in a normal for loop, you will get a speedup.
+
+ Makefile              |       9 +-
+ longresults.txt       | 3532654 +++++++++++++++++++++++-----------------------
+ output_parallel.cpp   |      27 +-
+ output_parallel.o     |     Bin 399192 -> 463136 bytes
+ results.txt           |    5832 +-
+ script_outparallel.sh |       0
+ testinitialize        |     Bin 1157864 -> 1156968 bytes
+ testinitialize.o      |     Bin 0 -> 1173632 bytes
+ testncoutput          |     Bin 1875464 -> 1874568 bytes
+ testncoutput.o        |     Bin 0 -> 2699048 bytes
+ testoutput            |     Bin 1563872 -> 1562984 bytes
+ testoutput.o          |     Bin 0 -> 2246584 bytes
+ testparameters        |     Bin 1001944 -> 1001056 bytes
+ testparameters.o      |     Bin 0 -> 1623000 bytes
+ testwaveadvance       |     Bin 1434920 -> 1432128 bytes
+ testwaveadvance.o     |     Bin 0 -> 1870336 bytes
+ testwavefields        |     Bin 977704 -> 976816 bytes
+ testwavefields.o      |     Bin 0 -> 1512936 bytes
+ timings_out.txt       |      96 +
+ wave1d_outparallel    |     Bin 1226608 -> 1252032 bytes
+ 20 files changed, 1769360 insertions(+), 1769258 deletions(-)
+
+commit 520b64f6d54a2dce3af83d07636d8b30d19be22e
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Tue Mar 29 21:30:53 2022 -0400
+
+    Parrallelized the advanced wave function. seems to work though not sure why there is a inscreased time at 16 threads. TODO: (1) second part where the output is parallelerized and (2) will probably do the plotting and fitting on a spreadsheet to save time:
+
+ Makefile                 |      29 +-
+ initialize.o             |     Bin 0 -> 314512 bytes
+ longresults.txt          | 2040164 +++++++++++++++++++++++++++++++++++++++++++
+ longresults.txt.nc       |     Bin 0 -> 16650572 bytes
+ ncoutput.h               |       2 +-
+ ncoutput.o               |     Bin 0 -> 702296 bytes
+ output.o                 |     Bin 0 -> 395680 bytes
+ output_parallel.cpp      |      51 +
+ output_parallel.o        |     Bin 0 -> 399192 bytes
+ parameters.o             |     Bin 0 -> 468992 bytes
+ results.txt              |    5566 +
+ script_outparallel.sh    |      13 +
+ script_parallel.sh       |      13 +
+ testinitialize           |     Bin 0 -> 1157864 bytes
+ testncoutput             |     Bin 0 -> 1875464 bytes
+ testoutput               |     Bin 0 -> 1563872 bytes
+ testparameters           |     Bin 0 -> 1001944 bytes
+ testwaveadvance          |     Bin 0 -> 1434920 bytes
+ testwavefields           |     Bin 0 -> 977704 bytes
+ timings_adv.txt          |      96 +
+ wave1d                   |     Bin 0 -> 1224992 bytes
+ wave1d.cpp               |      14 +-
+ wave1d.o                 |     Bin 0 -> 419328 bytes
+ wave1d_outparallel       |     Bin 0 -> 1226608 bytes
+ wave1d_parallel          |     Bin 0 -> 1226920 bytes
+ waveadvance.cpp          |       5 +
+ waveadvance.o            |     Bin 0 -> 355720 bytes
+ waveadvance_parallel.cpp |      34 +
+ waveadvance_parallel.o   |     Bin 0 -> 360688 bytes
+ wavefields.o             |     Bin 0 -> 488640 bytes
+ 30 files changed, 2045969 insertions(+), 18 deletions(-)
+
+commit 2a3e15e0dc8eebb9c75b0dc20fc3cf38fd4009d0
+Author: SciNet phy1610 course account <lcl_uotphy1610s1991@teach01.scinet.local>
+Date:   Tue Mar 29 03:15:11 2022 -0400
+
+    First commit, loaded the revelant script along with the modified longwaveparams.txt
+
+ Makefile             |   88 +
+ initialize.cpp       |   26 +
+ initialize.h         |   16 +
+ longwaveparams.txt   |   17 +
+ maketestparameters.h |   44 +
+ ncoutput.cpp         |   49 +
+ ncoutput.h           |   40 +
+ oldresults.txt       | 5566 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ output.cpp           |   42 +
+ output.h             |   32 +
+ parameters.cpp       |   64 +
+ parameters.h         |   44 +
+ setup                |    1 +
+ testinitialize.cpp   |   40 +
+ testncoutput.cpp     |  135 ++
+ testoutput.cpp       |  125 ++
+ testparameters.cpp   |   54 +
+ testwaveadvance.cpp  |   70 +
+ testwavefields.cpp   |   45 +
+ wave1d.cpp           |   74 +
+ waveadvance.cpp      |   29 +
+ waveadvance.h        |   21 +
+ wavefields.cpp       |   37 +
+ wavefields.h         |   31 +
+ waveparams.txt       |   17 +
+ 25 files changed, 6707 insertions(+)
